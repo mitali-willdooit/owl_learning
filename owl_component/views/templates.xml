@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_frontend" name="assets" inherit_id="web.assets_frontend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/owl_component/static/src/js/owl_component.js"></script>
+            </xpath>
+        </template>
+
+        <template id="owl_component.template_demo">
+            <t t-call="portal.portal_layout">
+                <div class="my_owl_component">
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
