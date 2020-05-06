@@ -12,16 +12,20 @@ odoo.define('owl_component.owl_extract_component', function (require) {
     const { xml } = owl.tags;
     const { whenReady } = owl.utils;
 
-    const TASK_TEMPLATE = xml /* xml */`
+    const PARTNER_TEMPLATE = xml /* xml */`
         <div>
             <input type="checkbox" t-att-checked="props.partner.company_type == 'company'"/>
             <span><t t-esc="props.partner.name"/></span>
         </div>`;
 
     class Partner extends Component {
-        static template = TASK_TEMPLATE;
-        static props = ["partner"];
+       // Blank class
+
+       // static template = PARTNER_TEMPLATE;
+       // static props = ["partner"];
     }
+    Partner.template = PARTNER_TEMPLATE;
+    Partner.props = ["partner"];
 
 
     const APP_TEMPLATE = xml /* xml */`
@@ -30,7 +34,6 @@ odoo.define('owl_component.owl_extract_component', function (require) {
                 <Partner partner="partner"/>
             </t>
         </div>`;
-
     class PartnerExtractComponent extends Component {
 
         async willStart() {
@@ -45,10 +48,12 @@ odoo.define('owl_component.owl_extract_component', function (require) {
             return this.partnersdata;
         }
 
-        static components = { Partner };
-        static template = APP_TEMPLATE;
+        // static components = { Partner };
+        // static template = APP_TEMPLATE;
 
     }
+    PartnerExtractComponent.template = APP_TEMPLATE;
+    PartnerExtractComponent.components = { Partner };
 
     function setup() {
         const PartnerExtractComponentDemo = new PartnerExtractComponent();
